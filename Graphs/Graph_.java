@@ -3,8 +3,9 @@ import java.util.ArrayList;
 public class Graph_ {
 
     private static class Edge{
-        int v, w;
-        Edge(int v, int w){
+        int u, v, w;
+        Edge(int u, int v, int w){
+            this.u = u;
             this.v = v;
             this.w = w;
         }
@@ -30,8 +31,8 @@ public class Graph_ {
     }
 
     private static void AddEdge(ArrayList<ArrayList<Edge>> L, int u, int v, int w){
-        L.get(u).add(new Edge(v, w));
-        L.get(v).add(new Edge(u, w));
+        L.get(u).add(new Edge(u, v, w));
+        L.get(v).add(new Edge(v, u, w));
         System.out.println("Adding Edge: " + u + " -> " + v + " (" + w + ")");
     }
 
@@ -39,7 +40,7 @@ public class Graph_ {
         System.out.println();
         for(int i=0; i<V; i++){
             for(int j=0; j<L.get(i).size(); j++){
-                System.out.println(i + " -> " + L.get(i).get(j).v + " (" + L.get(i).get(j).w + ")");
+                System.out.println(L.get(i).get(j).u + " -> " + L.get(i).get(j).v + " (" + L.get(i).get(j).w + ")");
             } System.out.println();
         }
     }
