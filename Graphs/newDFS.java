@@ -29,27 +29,26 @@ public class newDFS {
         AddEdge(L, 6, 7, 10);
         dfsTraversal(L, V);
     }
-
-    private static void Recursive(ArrayList<ArrayList<Edge>> L, int Source, int V, boolean[] Arr, int level){
-        if(Source == V){
-            return; 
-        } if(level == 0){
-            System.out.print(Source);
+    
+    private static void Recursive(ArrayList<ArrayList<Edge>> L, int Source, int V, boolean[] Arr){
+        if(level >= V){
+            System.out.println(); return; 
         } Arr[Source] = true;
-
-        for(Edge edgeL : L.get(Source)){
-            if(!Arr[edgeL.v]){
-                System.out.print(" -> " + edgeL.v);
-                Recursive(L, edgeL.v, V, Arr, ++level);
+        
+        for(Edge E : L.get(Source)){
+            if((!Arr[E.v]) && (level < V)){
+                System.out.print(" -> " + E.v); ++level;
+                Recursive(L, E.v, V, Arr);
             }
         }
     }
-
+    
+    private static int level = 1;
     private static void dfsTraversal(ArrayList<ArrayList<Edge>> L, int V){
         for(int i=0; i<V; i++){
             boolean[] Arr = new boolean[V];
-            Recursive(L, i, V, Arr, 0);
-            System.out.println();
+            System.out.print(i);
+            Recursive(L, i, V, Arr); level = 1;
         }
     }
 
