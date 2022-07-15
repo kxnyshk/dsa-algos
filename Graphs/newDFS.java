@@ -30,7 +30,7 @@ public class newDFS {
         dfsTraversal(L, V);
     }
     
-    private static void Recursive(ArrayList<ArrayList<Edge>> L, int Source, int V, boolean[] Arr){
+    private static void Recursive(ArrayList<ArrayList<Edge>> L, int V, int Source, boolean[] Arr){
         if(level >= V){
             System.out.println(); return; 
         } Arr[Source] = true;
@@ -38,7 +38,7 @@ public class newDFS {
         for(Edge E : L.get(Source)){
             if((!Arr[E.v]) && (level < V)){
                 System.out.print(" -> " + E.v); ++level;
-                Recursive(L, E.v, V, Arr);
+                Recursive(L, V, E.v, Arr);
             }
         }
     }
@@ -48,7 +48,7 @@ public class newDFS {
         for(int i=0; i<V; i++){
             boolean[] Arr = new boolean[V];
             System.out.print(i);
-            Recursive(L, i, V, Arr); level = 1;
+            Recursive(L, V, i, Arr); level = 1;
         }
     }
 
