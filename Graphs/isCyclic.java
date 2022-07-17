@@ -3,6 +3,8 @@ import java.util.ArrayList;
 
 public class isCyclic{
 
+    // Cyclic Component detection using BFS
+
     private static class Edge{
         int u, v, w;
         Edge(int u, int v, int w){
@@ -20,31 +22,51 @@ public class isCyclic{
         }
         
         AddEdge(L, 0, 1, 10);
+        AddEdge(L, 0, 2, 10);
+        AddEdge(L, 1, 3, 10);
         AddEdge(L, 2, 3, 10);
         AddEdge(L, 4, 5, 10);
         AddEdge(L, 4, 6, 10);
         AddEdge(L, 5, 6, 10);
         AddEdge(L, 4, 7, 10);
-        // AddEdge(L, 6, 7, 10);
         checkCycle(L, V);
     }
 
+    private static class Pair{
+        int Node, Parent;
+        Pair(int Node, int Parent){
+            this.Node = Node;
+            this.Parent = Parent;
+        }
+    }
+
     private static void bfs(ArrayList<ArrayList<Edge>> L, int V, int Source, boolean[] Arr, String Path){
-        ArrayDeque<Integer> Q = new ArrayDeque<>();
+        ArrayDeque<Pair> Q = new ArrayDeque<>();
+        ArrayDeque<String> P = new ArrayDeque<>();
         
-        Q.add(Source);
+        Q.add(new Pair(Source, -1)); Arr[Source] = true;
 
         while(!Q.isEmpty()){
-            int Temp = Q.poll();
-            if(Arr[Temp]){
-                System.out.println(Path);
-            } if(Temp != Source){
-                Path += " -> "; Path += Temp;
-            } Arr[Temp] = true; 
-
-            for(Edge E: L.get(Temp)){
+            int TempNode = Q.peek().Node;
+            int TempParent = Q.peek().Parent;
+            Q.remove();
+            
+            for(Edge E: L.get(TempNode)){
                 if(!Arr[E.v]){
-                    Q.add(E.v);
+                    Q.add(new Pair(E.v, TempNode));
+                    Arr[E.v] = true;
+                    Path += " -> "; Path += E.v;
+                } else if((Arr[E.v]) && (E.v != TempParent)){
+                    boolean found = false;
+                    for(String X: P){
+                        if(X == Path){
+                            found = true; break;
+                        }
+                    } if(!found){
+                        System.out.println(Path);
+                        P.add(Path);
+                    }
+                    
                 }
             }
         }
