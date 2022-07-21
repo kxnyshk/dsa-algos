@@ -13,20 +13,23 @@ public class PrimAlgoMST {
     }
     
     public static void main(String[] args) {
-        int V = 7;
+        int V = 5;
         ArrayList<ArrayList<Edge>> L = new ArrayList<>();
         for(int i=0; i<V; i++){
             L.add(new ArrayList<Edge>());
         }
         
-        AddEdge(L, 0, 1, 10);
-        AddEdge(L, 0, 3, 25);
-        AddEdge(L, 1, 2, 10);
-        AddEdge(L, 2, 3, 10);
-        AddEdge(L, 3, 4, 2);
-        AddEdge(L, 4, 5, 3);
-        AddEdge(L, 4, 6, 8);
-        AddEdge(L, 5, 6, 3);
+        // AddEdge(L, 0, 1, 10);
+        // AddEdge(L, 0, 3, 25);
+        // AddEdge(L, 1, 2, 10);
+        // AddEdge(L, 2, 3, 10);
+        // AddEdge(L, 3, 4, 2);
+        // AddEdge(L, 4, 5, 3);
+        // AddEdge(L, 4, 6, 8);
+        // AddEdge(L, 5, 6, 3);
+        AddEdge(L, 2, 1, 1);
+        AddEdge(L, 2, 3, 1);
+        AddEdge(L, 3, 4, 1);
         Prims(L, V);
     }
 
@@ -64,8 +67,8 @@ public class PrimAlgoMST {
     }
 
     private static void Prims(ArrayList<ArrayList<Edge>> L, int V) {
-        boolean[] Arr = new boolean[V];
-        bfs(L, V, Arr, 0);
+        boolean[] Arr = new boolean[V]; int S = 2;
+        bfs(L, V, Arr, S);
     }
 
     private static void AddEdge(ArrayList<ArrayList<Edge>> L, int u, int v, int w){
