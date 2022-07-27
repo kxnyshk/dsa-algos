@@ -1,0 +1,28 @@
+// Java code segment to print Graph:
+
+// with Integer
+private static void printGraph(ArrayList<ArrayList<Integer>> L) {
+    for(int i=0; i<L.size(); i++){
+        for(int x: L.get(i)){
+            System.out.print(x + " ");
+        } System.out.println();
+    }
+}
+
+// with Edge class
+private static void printGraph(ArrayList<ArrayList<Edge>> L) {
+    for(int i=0; i<L.size(); i++){
+        for(Edge E: L.get(i)){
+            System.out.println(i + " " + E.v + " " + E.w);
+        } System.out.println();
+    }
+}
+
+// print Grid
+private static void printGrid(int[][] grid){
+    for(int i=0; i<grid.length; i++){
+        for(int j=0; j<grid[0].length; j++){
+            System.out.print(grid[i][j] + " ");
+        } System.out.println();
+    }
+}
