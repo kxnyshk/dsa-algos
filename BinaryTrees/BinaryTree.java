@@ -16,22 +16,22 @@ public class BinaryTree{
         Integer[] Arr = {50,25,12,null,null,37,30,null,null,null,75,62,null,70,null,null,87,null,null};
         Node root = new Node(Arr[0], null, null);
 
-        ConstructBinaryTree(Arr, root);     // constructing a Binary Tree
-        DisplayBinaryTree(root);            // displaying a Binary Tree
-        
-        System.out.println("Size: " + Size(root));      // Size of Tree (No. of Nodes)
-        System.out.println("Sum: " +  Sum(root));       // Sum of all Nodes
-        System.out.println("Max: " + Max(root));        // Max of all Nodes
-        System.out.println("Height: " + Height(root));  // Height of Tree (Node height)
+        ConstructBinaryTree(Arr, root);                         // constructing a Binary Tree
+        DisplayBinaryTree(root);                                // displaying a Binary Tree
+
+        System.out.println("Size: " + Size(root));              // Size of Tree (No. of Nodes)
+        System.out.println("Sum: " +  Sum(root));               // Sum of all Nodes
+        System.out.println("Max: " + Max(root));                // Max of all Nodes
+        System.out.println("Height: " + Height(root));          // Height of Tree (Node height)
 
         System.out.println("\nPreorder: ");
-        TraversalOrderPre(root);    // Preorder     (Root, Left, Right)
+        TraversalOrderPre(root);                                // Preorder   (Root, Left, Right)
         System.out.println("\nInorder: ");
-        TraversalOrderIn(root);     // Inorder      (Left, Root, Right)
+        TraversalOrderIn(root);                                 // Inorder    (Left, Root, Right)
         System.out.println("\nPostorder: ");
-        TraversalOrderPost(root);   // Postorder    (Left, Right, Root)
+        TraversalOrderPost(root);                               // Postorder  (Left, Right, Root)
         System.out.println("\nLevelorder: ");
-        TraversalOrderLevel(root);   // Postorder    (L1, L2, L3, L4, L5)
+        TraversalOrderLevel(root);                              // Levelorder  (L1, L2, L3, L4, L5)
     }
 
     private static void TraversalOrderLevel(Node root) {
