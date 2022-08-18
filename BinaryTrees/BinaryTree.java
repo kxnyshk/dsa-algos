@@ -31,7 +31,7 @@ public class BinaryTree{
         System.out.println("\nPostorder: ");
         TraversalOrderPost(root);                               // Postorder  (Left, Right, Root)
         System.out.println("\nLevelorder: ");
-        TraversalOrderLevel(root);                              // Levelorder  (L1, L2, L3, L4, L5)
+        TraversalOrderLevel(root);                              // Levelorder (L1, L2, L3, L4, L5)
     }
 
     private static void TraversalOrderLevel(Node root) {
