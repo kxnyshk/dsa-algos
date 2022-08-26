@@ -21,7 +21,7 @@ public class TraversalOrderLevel {
     }
 
     class Solution {
-        
+
         public List<List<Integer>> levelOrder(TreeNode root) {
             List<List<Integer>> L = new ArrayList<List<Integer>>();
             if(root == null){
