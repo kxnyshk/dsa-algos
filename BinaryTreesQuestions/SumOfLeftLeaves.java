@@ -17,6 +17,7 @@ public class SumOfLeftLeaves {
     }
     
     class Solution {
+        
         public int sumOfLeftLeaves(TreeNode root) {
             return LeafSum(root, 0);
         }
