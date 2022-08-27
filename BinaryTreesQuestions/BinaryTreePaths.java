@@ -20,6 +20,7 @@ public class BinaryTreePaths {
     }
 
     class Solution {
+        
         public List<String> binaryTreePaths(TreeNode root) {
             L.clear();
             if((root.left == null) && (root.right == null)){
