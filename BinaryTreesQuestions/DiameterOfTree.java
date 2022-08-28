@@ -1,6 +1,7 @@
 public class DiameterOfTree {
     
     // https://leetcode.com/problems/diameter-of-binary-tree/
+    // https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1
     // LeetCode solution -> class Solution {..}
 
     public class TreeNode {
@@ -17,7 +18,7 @@ public class DiameterOfTree {
     }
 
     class Solution {
-        
+
         public int diameterOfBinaryTree(TreeNode root) {
             D = Integer.MIN_VALUE; Height(root);
             return D;
