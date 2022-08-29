@@ -61,3 +61,10 @@ public class LargestBSTSubTree {
         }
     }
 }
+
+// Example figure
+//         10
+//        /  \ 
+//       9    15
+//      / \     \
+//     1   8     7
