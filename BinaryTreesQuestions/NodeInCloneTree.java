@@ -3,7 +3,7 @@ public class NodeInCloneTree {
     // https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/
     // LeetCode solution -> class Solution {..}
 
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
