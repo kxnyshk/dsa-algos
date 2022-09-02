@@ -1,6 +1,6 @@
 public class GoodNodes {
 
-    // https://leetcode.com/problems/find-bottom-left-tree-value/
+    // https://leetcode.com/problems/count-good-nodes-in-binary-tree/
     // LeetCode solution -> class Solution {..}
 
     public class TreeNode {
@@ -17,7 +17,7 @@ public class GoodNodes {
     }
 
     class Solution {
-        
+
         public int goodNodes(TreeNode root) {
             count = 0; recur(root, Integer.MIN_VALUE);
             return count;
