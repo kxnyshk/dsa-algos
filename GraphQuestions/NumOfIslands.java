@@ -1,38 +1,31 @@
 public class NumOfIslands {
 
-    // https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1
     // https://leetcode.com/problems/number-of-islands/
-    // Expected Time Complexity: O(n*m)
-    // Expected Space Complexity: O(n*m)
+    // https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1
+    // LeetCode/Gfg solution -> class Solution {..}
     
-    public static void main(String[] args) {
-        char[][] Arr = {{'0','1'},{'1','0'},{'1','1'},{'1','0'}};
-        System.out.println(countIslands(Arr));
-    }
-
-    private static void Recursive(char[][] Arr, boolean[][] Bool, int i, int j) {
-        if((i < 0) || (j < 0) || (i >= Arr.length) || (j >= Arr[0].length) || Bool[i][j] || (Arr[i][j] == '0')){
-            return;
-        } Bool[i][j] = true;
-
-        Recursive(Arr, Bool, (i-1), (j-1)); Recursive(Arr, Bool, (i-1), j);
-        Recursive(Arr, Bool, (i-1), (j+1)); Recursive(Arr, Bool, i, (j-1));
-        Recursive(Arr, Bool, i, (j+1)); Recursive(Arr, Bool, (i+1), (j-1));
-        Recursive(Arr, Bool, (i+1), j); Recursive(Arr, Bool, (i+1), (j+1));
-    }
-
-    private static int countIslands(char[][] Arr) {
-        if((Arr == null) || (Arr.length <= 0)){
-            return 0;
-        } int count = 0;
-
-        boolean[][] Bool = new boolean[Arr.length][Arr[0].length];
-        for(int i=0; i<Arr.length; i++){
-            for(int j=0; j<Arr[0].length; j++){
-                if((!Bool[i][j]) && (Arr[i][j] == '1')){
-                    Recursive(Arr, Bool, i, j); count++;
+    class Solution {
+    
+        boolean[][] Arr;
+        int Count = 0;
+        
+        public int numIslands(char[][] grid) {
+            Arr = new boolean[grid.length][grid[0].length];
+            for(int i=0; i<grid.length; i++){
+                for(int j=0; j<grid[0].length; j++){
+                    if((!Arr[i][j]) && (grid[i][j] == '1')){
+                        dfs(grid, i, j); Count++;
+                    }
                 }
-            }
-        } return count;
+            } return Count++;
+        }
+        
+        void dfs(char[][] grid, int r, int c){
+            if((r < 0) || (c < 0) || (r >= grid.length) || (c >= grid[0].length) || (grid[r][c] != '1') || (Arr[r][c])){
+                return;
+            } Arr[r][c] = true;
+            dfs(grid, (r-1), c); dfs(grid, r, (c-1));
+            dfs(grid, (r+1), c); dfs(grid, r, (c+1));
+        }
     }
 }
