@@ -2,6 +2,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MinHammingDistance {
+
+    // https://leetcode.com/problems/minimize-hamming-distance-after-swap-operations/
+    // LeetCode solution -> class Solution {..}
     
     class Solution {
     
